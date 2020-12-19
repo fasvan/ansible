@@ -1,0 +1,10 @@
+---
+- name: run docker-compose.yml
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Create and start services
+      community.general.docker_compose:
+        project_src: docker-compose.yml
+      register: output
